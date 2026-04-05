@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 
 const pretendard = localFont({
   src: '../../public/fonts/PretendardVariable.woff2',
@@ -11,7 +13,7 @@ const pretendard = localFont({
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter', //tailwind와 연동할 css 변수명
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -25,8 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${pretendard.variable} ${inter.variable}`}>
-      <body className="antialiased font-inter">{children}</body>
+    <html lang="en" className={`${pretendard.variable} ${inter.variable} scroll-smooth`}>
+      <body className="antialiased font-inter">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
