@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-pretendard: var(--font-pretendard);
+  --font-inter: var(--font-inter);
+}
