@@ -19,7 +19,7 @@ export default function ScrollIndicator() {
           'text-[10px] font-semibold tracking-[0.35em] text-neutral-500',
           'transition-colors duration-200 group-hover:text-neutral-900',
         )}>
-        SCROLL
+        더 알아보기 ↓
       </span>
 
       <span
