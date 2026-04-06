@@ -1,18 +1,20 @@
 'use client';
 
 import { motion, useReducedMotion } from 'motion/react';
+import { scrollToSection } from '@/lib/scroll';
 import { cn } from '@/lib/utils';
 
 export default function ScrollIndicator() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <a
-      href="#projects"
+    <button
+      type="button"
+      onClick={() => scrollToSection('projects')}
       aria-label="Projects 섹션으로 이동"
       className={cn(
         'group absolute bottom-8 left-1/2 z-10 -translate-x-1/2',
-        'inline-flex flex-col items-center gap-3 text-neutral-700',
+        'inline-flex flex-col items-center gap-3 text-neutral-700 cursor-pointer',
       )}>
       <span
         className={cn(
@@ -33,6 +35,6 @@ export default function ScrollIndicator() {
           transition={shouldReduceMotion ? undefined : { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         />
       </span>
-    </a>
+    </button>
   );
 }

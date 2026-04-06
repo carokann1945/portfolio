@@ -1,7 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { scrollToSection } from '@/lib/scroll';
 import { cn } from '@/lib/utils';
+
+const navItems = [
+  { id: 'home', label: 'Home', hover: 'hover:text-blue-400' },
+  { id: 'projects', label: 'Projects', hover: 'hover:text-blue-400' },
+  { id: 'about', label: 'About', hover: 'hover:text-blue-400' },
+];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,13 +25,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const handleMove = (id: string) => {
+    scrollToSection(id);
+    setMenuOpen(false);
+  };
+
   return (
     <header className={cn('fixed inset-x-0 top-0 z-50')}>
       <nav>
-        {/* Mobile top bar */}
         <div
           className={cn(
-            'flex md:hidden w-full h-[50px]',
+            'flex md:hidden w-full h-[70px]',
             'justify-end items-center px-4',
             'bg-white',
             scrolled && 'shadow-md',
@@ -37,7 +48,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile dropdown */}
         <div
           className={cn(
             'md:hidden grid transition-all duration-200',
@@ -46,48 +56,40 @@ export default function Header() {
           )}>
           <div className="overflow-hidden">
             <div className="flex flex-col bg-white shadow-md">
-              {[
-                { href: '#home', label: 'Home', hover: 'hover:text-blue-400' },
-                { href: '#projects', label: 'Projects', hover: 'hover:text-green-500' },
-                { href: '#about', label: 'About', hover: 'hover:text-yellow-500' },
-              ].map(({ href, label, hover }) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={() => setMenuOpen(false)}
-                  className={cn('px-6 py-3', 'font-semibold text-gray-600', 'transition-all duration-200', hover)}>
+              {navItems.map(({ id, label, hover }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => handleMove(id)}
+                  className={cn(
+                    'px-6 py-3 text-left',
+                    'font-semibold text-gray-600',
+                    'transition-all duration-200 cursor-pointer',
+                    hover,
+                  )}>
                   {label}
-                </a>
+                </button>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Desktop nav */}
         <ul
           className={cn(
-            'hidden w-full h-[50px]',
+            'hidden w-full h-[70px]',
             'md:flex justify-center items-center gap-5',
             'bg-white',
-            '[&>li>a]:font-semibold [&>li>a]:text-gray-600',
-            '[&>li>a]:transition-all [&>li>a]:duration-200',
+            '[&>li>button]:font-semibold [&>li>button]:text-gray-800',
+            '[&>li>button]:transition-all [&>li>button]:duration-200',
             scrolled && 'shadow-md',
           )}>
-          <li>
-            <a href="#home" className="hover:text-blue-400">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="hover:text-green-500">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-yellow-500">
-              About
-            </a>
-          </li>
+          {navItems.map(({ id, label, hover }) => (
+            <li key={id}>
+              <button type="button" onClick={() => handleMove(id)} className={cn('cursor-pointer', hover)}>
+                {label}
+              </button>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

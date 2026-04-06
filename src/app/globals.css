@@ -12,6 +12,10 @@
   --breakpoint-bp1600: 1600px;
 }
 
+.root {
+  isolation: isolate;
+}
+
 html {
   scrollbar-gutter: stable;
 }

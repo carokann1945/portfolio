@@ -1,12 +1,15 @@
 import Image from 'next/image';
 import { ReadmeButton } from '@/components/ui/ReadmeModal';
 import { cn } from '@/lib/utils';
+import SectionHeadingButton from '../ui/SectionHeadingButton';
 
 export default function Projects() {
   return (
-    <section id="projects" className={cn('relative w-full px-5 pt-15', 'flex flex-col items-center gap-10')}>
-      <h2 className={cn('font-bold text-[3rem] underline underline-offset-15 decoration-1 decoration-gray-400/30')}>
-        <a href="#projects">Projects</a>
+    <section
+      id="projects"
+      className={cn('relative w-full px-5 pt-10 scroll-m-[70px]', 'flex flex-col items-center gap-10')}>
+      <h2 className={cn('font-[900] text-[3rem] underline underline-offset-15 decoration-1 decoration-gray-400/30')}>
+        <SectionHeadingButton sectionId="projects">Projects</SectionHeadingButton>
       </h2>
       {/* 첫번째 프로젝트 wrapper */}
       <div
@@ -69,7 +72,7 @@ export default function Projects() {
             className={cn(
               'hidden',
               'relative bp1200:flex bp1200:flex-1 bp1600:flex-[20] hidden h-full',
-              'border border-gray-800',
+              'border border-gray-300',
             )}>
             <Image src="/images/cernium-desktop-1500x1190.png" alt="img" fill className="object-cover object-top" />
           </figure>
@@ -78,9 +81,85 @@ export default function Projects() {
             className={cn(
               'hidden bp1200:hidden',
               'relative bp960:flex flex-1 bp1600:flex bp1600:flex-[10] h-full',
-              'border border-gray-800',
+              'border border-gray-300',
             )}>
             <Image src="/images/cernium-mobile.png" alt="img" fill className="object-cover object-top" />
+          </figure>
+        </div>
+      </div>
+
+      {/* 두번째 프로젝트 wrapper */}
+      <div
+        className={cn('w-full max-w-[560px] bp960:max-w-[1860px] mt-20', 'bp960:px-22 bp1200:px-5', 'flex gap-[30px]')}>
+        {/* 왼쪽 설명 */}
+        <div className={cn('flex flex-col gap-[12px] bp960:flex-1 bp960:mt-5 bp1200:flex-[10]')}>
+          <figure className={cn('relative min-w-0 aspect-[6/3] rounded-md overflow-hidden')}>
+            <Image src="/images/carokann-ogimage.png" alt="img" fill className="object-cover" />
+          </figure>
+          {/* 왼쪽 글 상자 */}
+          <div className={cn('flex flex-col gap-[8px]')}>
+            <h3 className={cn('text-[1.5rem] bp1200:text-[1.8rem] font-bold text-gray-800 backface-hidden')}>
+              Carokann
+            </h3>
+            <p
+              className={cn(
+                'text-[1rem] bp1200:text-[1.1rem] leading-7 bp1200:leading-8 backface-hidden text-gray-800',
+              )}>
+              기존 작업 관리 서비스들은 반복 작업에서 작업을 완료하면 즉시 체크가 해제되어 작업의 진척도를 확인하기
+              힘들다는 문제를 해결하기 위해 제작했습니다. 이 서비스는 사용자가 다양한 반복 주기를 자유롭게 설정할 수
+              있도록 지원하며, 반복 작업의 진척도를 직접 눈으로 확인할 수 있도록 했습니다.
+            </p>
+            {/* 왼쪽 버튼들 */}
+            <div
+              className={cn(
+                'w-full',
+                'flex gap-[6px]',
+                'font-semibold',
+                '[&>button]:px-2 [&>button]:py-1 [&>button]:border [&>button]:border-gray-400 [&>button]:rounded-md [&>button]:cursor-pointer',
+                '[&>button>a]:flex [&>button>a]:justify-center [&>button>a]:items-center [&>button>a]:gap-[4px]',
+              )}>
+              <ReadmeButton repo="carokann1945/carokann" />
+              <button>
+                <a href="https://github.com/carokann1945/carokann" target="_blank" rel="noopener noreferrer">
+                  <Image src="/images/github.svg" alt="github" width={18} height={18} />
+                  <span>Github</span>
+                </a>
+              </button>
+              <button>
+                <a href="https://carokann.app/" target="_blank" rel="noopener noreferrer">
+                  <Image src="/images/www.svg" alt="live link" width={18} height={18} />
+                  <span>Live</span>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* 오른쪽 이미지 */}
+        <div
+          className={cn(
+            'hidden',
+            'bp960:aspect-[2/3] bp1200:aspect-[4/3] bp1600:aspect-[16/8]',
+            'bp960:flex bp960:flex-1 bp1200:flex-[18] bp1600:flex-[30]',
+            'gap-[30px]',
+            'p-[20px] bp1200:p-[30px]',
+            'bg-[#f7f7f7] rounded-md',
+          )}>
+          <figure
+            className={cn(
+              'hidden',
+              'relative bp1200:flex bp1200:flex-1 bp1600:flex-[20] hidden h-full',
+              'border border-gray-300',
+            )}>
+            <Image src="/images/carokann-desktop.png" alt="img" fill className="object-cover object-top" />
+          </figure>
+
+          <figure
+            className={cn(
+              'hidden bp1200:hidden',
+              'relative bp960:flex flex-1 bp1600:flex bp1600:flex-[10] h-full',
+              'border border-gray-300',
+            )}>
+            <Image src="/images/carokann-mobile.png" alt="img" fill className="object-cover object-top" />
           </figure>
         </div>
       </div>

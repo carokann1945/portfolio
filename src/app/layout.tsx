@@ -34,9 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${pretendard.variable} ${inter.variable} ${ridiBatang.variable} scroll-smooth`}>
       <body className="antialiased font-inter">
-        <Header />
-        {children}
-        <Footer />
+        <div className="root">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
