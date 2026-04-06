@@ -3,4 +3,11 @@
 @theme inline {
   --font-pretendard: var(--font-pretendard);
   --font-inter: var(--font-inter);
+  --font-ridiBatang: var(--font-ridiBatang);
+}
+
+@theme {
+  --breakpoint-bp960: 960px;
+  --breakpoint-bp1200: 1200px;
+  --breakpoint-bp1600: 1600px;
 }

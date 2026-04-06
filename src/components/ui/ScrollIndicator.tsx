@@ -8,8 +8,8 @@ export default function ScrollIndicator() {
 
   return (
     <a
-      href="#about"
-      aria-label="About 섹션으로 이동"
+      href="#projects"
+      aria-label="Projects 섹션으로 이동"
       className={cn(
         'group absolute bottom-8 left-1/2 z-10 -translate-x-1/2',
         'inline-flex flex-col items-center gap-3 text-neutral-700',

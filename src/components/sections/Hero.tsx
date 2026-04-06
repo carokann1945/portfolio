@@ -7,12 +7,12 @@ export default function Hero() {
 
   return (
     <section id="home" className={cn('relative w-full h-dvh px-5', 'flex flex-col justify-center items-center gap-1')}>
-      <h1 className={cn('text-[6rem] md:text-[10rem] xl:text-[12rem] font-[900] tracking-tighter')}>윤동주</h1>
+      <h1 className={cn('text-[6rem] md:text-[10rem] xl:text-[12rem] font-[900] tracking-tight')}>윤동주</h1>
       <h2
         className={cn(
           'text-[2rem] md:text-[4rem] xl:text-[6rem] font-bold tracking-tighter -mt-5 md:-mt-10 text-center',
         )}>
-        프론트 엔드 개발자
+        프론트엔드 개발자
       </h2>
       <GlitchText
         phrases={phrases}

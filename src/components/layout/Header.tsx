@@ -48,8 +48,8 @@ export default function Header() {
             <div className="flex flex-col bg-white shadow-md">
               {[
                 { href: '#home', label: 'Home', hover: 'hover:text-blue-400' },
-                { href: '#about', label: 'About', hover: 'hover:text-green-500' },
-                { href: '#projects', label: 'Projects', hover: 'hover:text-yellow-500' },
+                { href: '#projects', label: 'Projects', hover: 'hover:text-green-500' },
+                { href: '#about', label: 'About', hover: 'hover:text-yellow-500' },
               ].map(({ href, label, hover }) => (
                 <a
                   key={href}
@@ -79,13 +79,13 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="#about" className="hover:text-green-500">
-              About
+            <a href="#projects" className="hover:text-green-500">
+              Projects
             </a>
           </li>
           <li>
-            <a href="#projects" className="hover:text-yellow-500">
-              Projects
+            <a href="#about" className="hover:text-yellow-500">
+              About
             </a>
           </li>
         </ul>

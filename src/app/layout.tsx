@@ -10,6 +10,11 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
+const ridiBatang = localFont({
+  src: '../../public/fonts/RIDIBatang.woff2',
+  variable: '--font-ridiBatang',
+});
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -27,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${pretendard.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${pretendard.variable} ${inter.variable} ${ridiBatang.variable} scroll-smooth`}>
       <body className="antialiased font-inter">
         <Header />
         {children}
