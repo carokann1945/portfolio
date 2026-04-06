@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className={cn('relative w-full px-5 pt-10 scroll-m-[70px]', 'flex flex-col items-center gap-10')}>
+      className={cn('relative w-full px-5 pt-10 scroll-mt-[70px]', 'flex flex-col items-center gap-10')}>
       <h2 className={cn('font-[900] text-[3rem] underline underline-offset-15 decoration-1 decoration-gray-400/30')}>
         <SectionHeadingButton sectionId="projects">Projects</SectionHeadingButton>
       </h2>
