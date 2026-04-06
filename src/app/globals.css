@@ -11,3 +11,7 @@
   --breakpoint-bp1200: 1200px;
   --breakpoint-bp1600: 1600px;
 }
+
+html {
+  scrollbar-gutter: stable;
+}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ReadmeButton } from '@/components/ui/ReadmeModal';
 import { cn } from '@/lib/utils';
 
 export default function Projects() {
@@ -26,7 +27,7 @@ export default function Projects() {
               )}>
               Cernium은 영어 및 해외 시간대(UTC, PDT) 기반 GMS(글로벌 메이플스토리) 공지의 낮은 접근성과, 이벤트 정보가
               분산된 문제를 해결하기 위해 제작했습니다. 2026년 4월부터 개발 중이며 DAU 100명 규모로 운영되고 있습니다.
-              Next.js와 Typescript 기반으로 제작되었습니다. 데이터 수집을 위한 서브 프로젝트는 Node.js 기반으로
+              Next.js와 Typescript 기반으로 제작되었으며 데이터 수집을 위한 서브 프로젝트는 Node.js 기반으로
               제작되었습니다.
             </p>
             {/* 왼쪽 버튼들 */}
@@ -38,10 +39,7 @@ export default function Projects() {
                 '[&>button]:px-2 [&>button]:py-1 [&>button]:border [&>button]:border-gray-400 [&>button]:rounded-md [&>button]:cursor-pointer',
                 '[&>button>a]:flex [&>button>a]:justify-center [&>button>a]:items-center [&>button>a]:gap-[4px]',
               )}>
-              <button className={cn('flex justify-center items-center gap-[4px]')}>
-                <Image src="/images/note.svg" alt="github" width={18} height={18} />
-                <span>README</span>
-              </button>
+              <ReadmeButton repo="carokann1945/cernium" />
               <button>
                 <a href="https://github.com/carokann1945/cernium" target="_blank" rel="noopener noreferrer">
                   <Image src="/images/github.svg" alt="github" width={18} height={18} />
