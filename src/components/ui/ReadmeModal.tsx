@@ -33,57 +33,65 @@ interface ReadmeContentProps {
 
 function ReadmeContent({ markdown, baseUrl }: ReadmeContentProps) {
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
-      components={{
-        table: ({ children }) => (
-          <div className={cn('overflow-x-auto mb-3')}>
-            <table className={cn('w-full text-sm border-collapse')}>{children}</table>
-          </div>
-        ),
-        thead: ({ children }) => <thead className={cn('bg-gray-100 text-gray-700')}>{children}</thead>,
-        tbody: ({ children }) => <tbody className={cn('divide-y divide-gray-200')}>{children}</tbody>,
-        tr: ({ children }) => <tr>{children}</tr>,
-        th: ({ children }) => (
-          <th className={cn('px-3 py-2 text-left font-semibold border border-gray-200')}>{children}</th>
-        ),
-        td: ({ children }) => <td className={cn('px-3 py-2 text-gray-700 border border-gray-200')}>{children}</td>,
-        h1: ({ children }) => <h1 className={cn('text-xl font-bold text-gray-800 mb-3 mt-1')}>{children}</h1>,
-        h2: ({ children }) => <h2 className={cn('text-lg font-semibold text-gray-800 mb-2 mt-4')}>{children}</h2>,
-        h3: ({ children }) => <h3 className={cn('text-base font-semibold text-gray-700 mb-2 mt-3')}>{children}</h3>,
-        p: ({ children }) => <p className={cn('text-sm leading-7 text-gray-700 mb-3')}>{children}</p>,
-        a: ({ href, children }) => (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn('text-blue-600 underline underline-offset-2 hover:text-blue-800')}>
-            {children}
-          </a>
-        ),
-        code: ({ children }) => (
-          <code className={cn('bg-gray-100 text-gray-800 text-xs px-1 py-0.5 rounded')}>{children}</code>
-        ),
-        pre: ({ children }) => (
-          <pre className={cn('bg-gray-100 rounded-md p-4 overflow-x-auto text-xs text-gray-800 mb-3')}>{children}</pre>
-        ),
-        ul: ({ children }) => <ul className={cn('list-disc pl-5 mb-3 text-sm text-gray-700 space-y-1')}>{children}</ul>,
-        ol: ({ children }) => (
-          <ol className={cn('list-decimal pl-5 mb-3 text-sm text-gray-700 space-y-1')}>{children}</ol>
-        ),
-        hr: () => <hr className={cn('border-gray-200 my-4')} />,
-        img: ({ src, alt }) => {
-          const resolvedSrc =
-            typeof src === 'string' && !src.startsWith('http')
-              ? new URL(src, baseUrl).href
-              : (src as string | undefined);
-          // eslint-disable-next-line @next/next/no-img-element
-          return <img src={resolvedSrc} alt={alt ?? ''} className={cn('max-w-full rounded-md my-2')} />;
-        },
-      }}>
-      {markdown}
-    </ReactMarkdown>
+    <div className="font-pretendard font-normal text-[#1a1a1a]">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+        components={{
+          table: ({ children }) => (
+            <div className={cn('overflow-x-auto mb-3')}>
+              <table className={cn('w-full text-sm border-collapse')}>{children}</table>
+            </div>
+          ),
+          thead: ({ children }) => <thead className={cn('bg-gray-100 text-gray-700')}>{children}</thead>,
+          tbody: ({ children }) => <tbody className={cn('divide-y divide-gray-200')}>{children}</tbody>,
+          tr: ({ children }) => <tr>{children}</tr>,
+          th: ({ children }) => (
+            <th className={cn('px-3 py-2 text-left font-semibold border border-gray-200')}>{children}</th>
+          ),
+          td: ({ children }) => <td className={cn('px-3 py-2 text-gray-700 border border-gray-200')}>{children}</td>,
+          h1: ({ children }) => (
+            <h1 className={cn('text-2xl font-bold text-gray-800 pb-3 mt-1 border-b border-gray-400')}>{children}</h1>
+          ),
+          h2: ({ children }) => <h2 className={cn('text-xl font-bold mb-4 mt-4')}>{children}</h2>,
+          h3: ({ children }) => <h3 className={cn('text-base font-semiboldmb-2 mt-3')}>{children}</h3>,
+          p: ({ children }) => <p className={cn('text-base leading-7 mb-3')}>{children}</p>,
+          a: ({ href, children }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn('text-blue-600 underline underline-offset-2 hover:text-blue-800')}>
+              {children}
+            </a>
+          ),
+          code: ({ children }) => (
+            <code className={cn('bg-gray-100 text-gray-800 text-sm px-1 py-0.5 rounded')}>{children}</code>
+          ),
+          pre: ({ children }) => (
+            <pre className={cn('bg-gray-100 rounded-md p-4 overflow-x-auto text-sm text-gray-800 mb-3')}>
+              {children}
+            </pre>
+          ),
+          ul: ({ children }) => (
+            <ul className={cn('list-disc pl-5 mb-3 text-base text-gray-700 space-y-1')}>{children}</ul>
+          ),
+          ol: ({ children }) => (
+            <ol className={cn('list-decimal pl-5 mb-3 text-base text-gray-700 space-y-1')}>{children}</ol>
+          ),
+          hr: () => <hr className={cn('border-gray-200 my-4')} />,
+          img: ({ src, alt }) => {
+            const resolvedSrc =
+              typeof src === 'string' && !src.startsWith('http')
+                ? new URL(src, baseUrl).href
+                : (src as string | undefined);
+            // eslint-disable-next-line @next/next/no-img-element
+            return <img src={resolvedSrc} alt={alt ?? ''} className={cn('max-w-full rounded-md my-2')} />;
+          },
+        }}>
+        {markdown}
+      </ReactMarkdown>
+    </div>
   );
 }
 
