@@ -22,8 +22,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'template',
-  description: '',
+  title: '윤동주 포트폴리오',
+  description: '윤동주 프론트엔드 개발자 포트폴리오',
 };
 
 export default function RootLayout({
