@@ -7,16 +7,8 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className={cn(
-        'relative w-full px-5 pb-10 mt-[150px] scroll-mt-[100px]',
-        'flex flex-col items-center',
-        'border-b border-gray-300',
-      )}>
-      <h2
-        className={cn(
-          'font-[900] text-[3rem] tracking-tight underline underline-offset-15 decoration-1 decoration-gray-400/30',
-          'mb-5',
-        )}>
+      className={cn('relative w-full px-5 pb-10 mt-[150px] scroll-mt-[100px]', 'flex flex-col items-center')}>
+      <h2 className={cn('font-[900] text-[3rem] tracking-tight', 'mb-5')}>
         <SectionHeadingButton sectionId="projects">Projects</SectionHeadingButton>
       </h2>
       {/* 첫번째 프로젝트 wrapper */}

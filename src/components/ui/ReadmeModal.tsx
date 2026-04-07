@@ -3,7 +3,7 @@
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
@@ -29,6 +29,11 @@ interface ReadmeButtonProps {
 interface ReadmeContentProps {
   markdown: string;
   baseUrl: string;
+}
+
+function getCodeText(children: ReactNode) {
+  if (Array.isArray(children)) return children.join('');
+  return typeof children === 'string' ? children : '';
 }
 
 function ReadmeContent({ markdown, baseUrl }: ReadmeContentProps) {
@@ -65,9 +70,15 @@ function ReadmeContent({ markdown, baseUrl }: ReadmeContentProps) {
               {children}
             </a>
           ),
-          code: ({ children }) => (
-            <code className={cn('bg-gray-100 text-gray-800 text-sm px-1 py-0.5 rounded')}>{children}</code>
-          ),
+          code: ({ children, className }) => {
+            const isBlockCode = Boolean(className?.includes('language-')) || getCodeText(children).includes('\n');
+
+            if (isBlockCode) {
+              return <code className={cn(className)}>{children}</code>;
+            }
+
+            return <code className={cn('bg-gray-100 text-gray-800 text-sm px-1 py-0.5 rounded')}>{children}</code>;
+          },
           pre: ({ children }) => (
             <pre className={cn('bg-gray-100 rounded-md p-4 overflow-x-auto text-sm text-gray-800 mb-3')}>
               {children}
@@ -76,9 +87,15 @@ function ReadmeContent({ markdown, baseUrl }: ReadmeContentProps) {
           ul: ({ children }) => (
             <ul className={cn('list-disc pl-5 mb-3 text-base text-gray-700 space-y-1')}>{children}</ul>
           ),
-          ol: ({ children }) => (
-            <ol className={cn('list-decimal pl-5 mb-3 text-base text-gray-700 space-y-1')}>{children}</ol>
-          ),
+          ol: ({ children, className, node, ...props }) => {
+            void node;
+
+            return (
+              <ol {...props} className={cn('list-decimal pl-5 mb-3 text-base text-gray-700 space-y-1', className)}>
+                {children}
+              </ol>
+            );
+          },
           hr: () => <hr className={cn('border-gray-200 my-4')} />,
           img: ({ src, alt }) => {
             const resolvedSrc =

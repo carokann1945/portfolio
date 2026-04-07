@@ -6,13 +6,7 @@ export default function Hero() {
   const phrases = ['신입 프론트엔드 개발자', '집요하게 완성하는', '사용자 경험을 다듬는', '디테일을 놓치지 않는'];
 
   return (
-    <section
-      id="home"
-      className={cn(
-        'relative w-full h-dvh px-5',
-        'flex flex-col justify-center items-center gap-1',
-        'border-b border-gray-300',
-      )}>
+    <section id="home" className={cn('relative w-full h-dvh px-5', 'flex flex-col justify-center items-center gap-1')}>
       <h1 className={cn('text-[6rem] md:text-[10rem] xl:text-[12rem] font-[900] tracking-tight')}>윤동주</h1>
       <h2
         className={cn(
