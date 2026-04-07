@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { scrollToSection } from '@/lib/scroll';
 import { cn } from '@/lib/utils';
+import SectionHeadingButton from '../ui/SectionHeadingButton';
 
 const navItems = [
   { id: 'home', label: 'Home', hover: 'hover:text-blue-400' },
@@ -35,14 +36,17 @@ export default function Header() {
       <nav>
         <div
           className={cn(
-            'flex md:hidden w-full h-[70px]',
-            'justify-end items-center px-4',
+            'flex bp960:hidden w-full h-[70px]',
+            'justify-between items-center px-4',
             'bg-white',
             scrolled && 'shadow-md',
           )}>
+          <h1 className={cn('font-bold text-[1.5rem]', 'hover:text-blue-400')}>
+            <SectionHeadingButton sectionId="home">YDJ Portfolio</SectionHeadingButton>
+          </h1>
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="text-2xl text-gray-600 cursor-pointer"
+            className="w-[40px] h-[40px] rounded-md text-2xl text-gray-600 cursor-pointer border border-gray-300"
             aria-label="메뉴 열기 닫기">
             {menuOpen ? '✕' : '☰'}
           </button>
@@ -50,7 +54,7 @@ export default function Header() {
 
         <div
           className={cn(
-            'md:hidden grid transition-all duration-200',
+            'bp960:hidden grid transition-all duration-200',
             menuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
             menuOpen && 'shadow-md',
           )}>
@@ -62,7 +66,7 @@ export default function Header() {
                   type="button"
                   onClick={() => handleMove(id)}
                   className={cn(
-                    'px-6 py-3 text-left',
+                    'px-6 py-2 text-left',
                     'font-semibold text-gray-600',
                     'transition-all duration-200 cursor-pointer',
                     hover,
@@ -77,7 +81,7 @@ export default function Header() {
         <ul
           className={cn(
             'hidden w-full h-[70px]',
-            'md:flex justify-center items-center gap-5',
+            'bp960:flex justify-center items-center gap-5',
             'bg-white',
             '[&>li>button]:font-semibold [&>li>button]:text-gray-800',
             '[&>li>button]:transition-all [&>li>button]:duration-200',
