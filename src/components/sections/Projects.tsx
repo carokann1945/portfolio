@@ -74,7 +74,7 @@ export default function Projects() {
               'relative bp1200:flex bp1200:flex-1 bp1600:flex-[20] hidden h-full',
               'border border-gray-300',
             )}>
-            <Image src="/images/cernium-desktop-1500x1190.png" alt="img" fill className="object-cover object-top" />
+            <Image src="/images/cernium-desktop.png" alt="" fill className="object-cover object-top" />
           </figure>
 
           <figure
@@ -83,7 +83,7 @@ export default function Projects() {
               'relative bp960:flex flex-1 bp1600:flex bp1600:flex-[10] h-full',
               'border border-gray-300',
             )}>
-            <Image src="/images/cernium-mobile.png" alt="img" fill className="object-cover object-top" />
+            <Image src="/images/cernium-mobile.png" alt="" fill className="object-cover object-top" />
           </figure>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function Projects() {
                 'text-[1rem] bp1200:text-[1.1rem] leading-7 bp1200:leading-8 backface-hidden text-gray-800',
               )}>
               기존 작업 관리 서비스들은 반복 작업에서 작업을 완료하면 즉시 체크가 해제되어 작업의 진척도를 확인하기
-              힘들다는 문제를 해결하기 위해 제작했습니다. 이 서비스는 사용자가 다양한 반복 주기를 자유롭게 설정할 수
+              어려운 문제를 해결하기 위해 제작했습니다. 이 서비스는 사용자가 다양한 반복 주기를 자유롭게 설정할 수
               있도록 지원하며, 반복 작업의 진척도를 직접 눈으로 확인할 수 있도록 했습니다.
             </p>
             {/* 왼쪽 버튼들 */}
@@ -121,13 +121,13 @@ export default function Projects() {
               <ReadmeButton repo="carokann1945/carokann" />
               <button>
                 <a href="https://github.com/carokann1945/carokann" target="_blank" rel="noopener noreferrer">
-                  <Image src="/images/github.svg" alt="github" width={18} height={18} />
+                  <Image src="/images/github.svg" alt="" width={18} height={18} />
                   <span>Github</span>
                 </a>
               </button>
               <button>
                 <a href="https://carokann.app/" target="_blank" rel="noopener noreferrer">
-                  <Image src="/images/www.svg" alt="live link" width={18} height={18} />
+                  <Image src="/images/www.svg" alt="" width={18} height={18} />
                   <span>Live</span>
                 </a>
               </button>
@@ -150,7 +150,7 @@ export default function Projects() {
               'relative bp1200:flex bp1200:flex-1 bp1600:flex-[20] hidden h-full',
               'border border-gray-300',
             )}>
-            <Image src="/images/carokann-desktop.png" alt="img" fill className="object-cover object-top" />
+            <Image src="/images/carokann-desktop.png" alt="" fill className="object-cover object-top" />
           </figure>
 
           <figure
@@ -159,7 +159,7 @@ export default function Projects() {
               'relative bp960:flex flex-1 bp1600:flex bp1600:flex-[10] h-full',
               'border border-gray-300',
             )}>
-            <Image src="/images/carokann-mobile.png" alt="img" fill className="object-cover object-top" />
+            <Image src="/images/carokann-mobile.png" alt="" fill className="object-cover object-top" />
           </figure>
         </div>
       </div>
@@ -184,18 +184,18 @@ export function Buttons({ readmeHref, githubHref, liveHref }: ButtonsProp) {
       '[&>button>a]:flex [&>button>a]:justify-center [&>button>a]:items-center [&>button>a]:gap-[4px]',
     )}>
     <button className={cn('flex justify-center items-center gap-[4px]')}>
-      <Image src="/images/note.svg" alt="github" width={18} height={18} />
+      <Image src="/images/note.svg" alt="" width={18} height={18} />
       <span>README</span>
     </button>
     <button>
       <a href="https://github.com/carokann1945/cernium" target="_blank" rel="noopener noreferrer">
-        <Image src="/images/github.svg" alt="github" width={18} height={18} />
+        <Image src="/images/github.svg" alt="" width={18} height={18} />
         <span>Github</span>
       </a>
     </button>
     <button>
       <a href="https://cernium.app/" target="_blank" rel="noopener noreferrer">
-        <Image src="/images/www.svg" alt="github" width={18} height={18} />
+        <Image src="/images/www.svg" alt="" width={18} height={18} />
         <span>Live</span>
       </a>
     </button>
